@@ -40,9 +40,24 @@ const car = new THREE.Mesh(
 scene.add(car);
 
 // 6. Create the animation loop
+// Physics
+let u = 0;          // initial velocity (m/s)
+let a = 3;          // acceleration (m/s²)
+let t = 0;          // time (s)
+let dt = 0.016;     // time step
 function animate() {
 
     requestAnimationFrame(animate);
+    
+    // v = u + at
+    const v = u + a * t;
+
+    // Move the car forward
+    car.position.z -= v * dt;
+
+    // Increase simulation time
+    t += dt;
+    
 
     renderer.render(scene, camera);
 }
