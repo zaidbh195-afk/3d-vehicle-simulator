@@ -53,7 +53,7 @@ function animate() {
     const v = u + a * t;
 
     // Move the car forward
-    car.position.z -= v * dt;
+    car.position.x -= v * dt;
 
     // Increase simulation time
     t += dt;
